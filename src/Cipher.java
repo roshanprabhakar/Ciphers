@@ -17,8 +17,7 @@ public class Cipher {
 
     // Set this variable to the default alphabet you wish to use
     private static final String DEFAULT_ALPHABET = ALPHABET;
-    public static final Dictionary dict = new Dictionary();
-    public static final String[] dictionaryList = dict.getWordList();
+    public static final Dictionary dict = Dictionary.buildDictionary("text/words.txt");
 
     /**
      * Returns plaintext encrypted by the rotation cipher with a shift of
@@ -209,7 +208,7 @@ public class Cipher {
             }
         }
 
-        //       System.out.println("StripInvalidChars removed a total of " + count + " chars.");
+        //System.out.println("StripInvalidChars removed a total of " + count + " chars.");
         return b.toString();
     }
 
@@ -347,10 +346,15 @@ public class Cipher {
      * This method attempts to crack the password by testing many different lengths.
      * @param cipherText the cipher text to crack
      * @return the password used to encrypt the cipherText
-     */
-//    //This is the only method that is not fully functional
-//    public static String crackPassword(String cipherText) {
-//        int i = 0;
-//
-//    }
+    */
+    //there is a problem with the Dictionary.isWord
+    public static String crackPassword(String cipherText) {
+        int i = 1;
+        while (true) {
+            if (isEnglish(vigenereCipherDecrypt(cipherText, decodeLengthN(cipherText, i), ALPHABET), 0.6)) {
+                return decodeLengthN(cipherText, i);
+            }
+            i++;
+        }
+    }
 }

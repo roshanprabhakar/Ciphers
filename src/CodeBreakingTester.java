@@ -22,17 +22,17 @@ public class CodeBreakingTester {
 		// -========== CRACK CIPHER 2 ===========-
 		// cipherText2.txt was encoded with a 2-letter password
 		// ---------------------------------------
+//
+//		cipherText = Cipher.loadFileAsString("text/cipherText2.txt");
+//		System.out.println("Cipher text 2:\n" + cipherText);
+//
+//		password = Cipher.bruteForceCrackLength2Password(cipherText);
+//		System.out.println("CRACKED! Rotation amount is " + password);
+//
+//		plainText = Cipher.vigenereCipherDecrypt(cipherText, password, Cipher.ALPHABET);
+//
+//		System.out.println("PLAINTEXT IS: " + plainText);
 
-		cipherText = Cipher.loadFileAsString("text/cipherText2.txt");
-		System.out.println("Cipher text 2:\n" + cipherText);
-
-		password = Cipher.bruteForceCrackLength2Password(cipherText);
-		System.out.println("CRACKED! Rotation amount is " + password);
-
-		plainText = Cipher.vigenereCipherDecrypt(cipherText, password, Cipher.ALPHABET);
-
-		System.out.println("PLAINTEXT IS: " + plainText);
-		System.out.println(Cipher.isEnglish(plainText, 0.1));
 		// -========== CRACK CIPHER 3 ===========-
 		// cipherText3.txt was encoded with a 3-letter password
 		// ---------------------------------------
@@ -64,15 +64,15 @@ public class CodeBreakingTester {
 		// -========== CRACK CIPHER 5 ===========-
 		// cipherText4.txt was encoded with a password of unknown length
 		// ---------------------------------------
-//
-//		cipherText = Cipher.loadFileAsString("text/cipherText5.txt");
-//		System.out.println("Cipher text 5:\n" + cipherText);
-//
-//		password = Cipher.crackPassword(cipherText);
-//		System.out.println("CRACKED! Rotation amount is " + password);
-//
-//		plainText = Cipher.vigenereCipherDecrypt(cipherText, password, Cipher.ALPHABET);
-//
-//		System.out.println("PLAINTEXT IS: " + plainText);
+
+		cipherText = Cipher.loadFileAsString("text/cipherText5.txt");
+		System.out.println("Cipher text 5:\n" + cipherText);
+
+		password = Cipher.crackPassword(cipherText);
+		System.out.println("CRACKED! Rotation amount is " + password);
+
+		plainText = Cipher.vigenereCipherDecrypt(cipherText, password, Cipher.ALPHABET);
+
+		System.out.println("PLAINTEXT IS: " + plainText);
 	}
 }
